@@ -29,13 +29,18 @@
         <form class="login-form form">
           <label for="login">
             <p>login</p>
-            <input id="login" placeholder="login" class="login-input" />
-            <span class="error login-error">This field is require</span>
+            <input id="login" placeholder="login" class="login-input" data-testid="login-input" />
+            <span class="error login-error">Login is require</span>
           </label>
           <label for="password">
             <p>password</p>
-            <input id="password" placeholder="password" class="password-input" />
-            <span class="error password-error">This field is require</span>
+            <input
+              id="password"
+              placeholder="password"
+              class="password-input"
+              data-testid="password-input"
+            />
+            <span class="error password-error">Password is require</span>
           </label>
 
           <button>Log in</button>
@@ -50,6 +55,7 @@
         <div></div>
       </div>
     </div>
+    <script src="./js/menu.js" type="module"></script>
     <script src="./js/login.js" type="module"></script>
   </body>
 </html>

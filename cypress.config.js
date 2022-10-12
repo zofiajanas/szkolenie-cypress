@@ -2,9 +2,9 @@ const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   e2e: {
-    specPattern: `src/cypress/e2e/*.{js,jsx,ts,tsx}`,
+    specPattern: `cypress/e2e/*.{js,jsx,ts,tsx}`,
     // supportFile: 'src/cypress/support/index.ts',
-    // baseUrl: '...',  URL API
+    baseUrl: 'http://localhost:1234',
     setupNodeEvents(on, config) {
       console.log(process.env.CYPRESS_E2E_URL);
       // if (process.env.CYPRESS_E2E_URL)

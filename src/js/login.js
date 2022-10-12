@@ -50,12 +50,12 @@ const dummyUser = {
 
 const submitForm = async e => {
   e.preventDefault();
-  toggleLoader(true);
 
   const isValid = validation();
   if (!isValid) return;
 
   try {
+    toggleLoader(true);
     const login = loginInput.value;
     const password = passwordInput.value;
     await backendLogin(login, password);

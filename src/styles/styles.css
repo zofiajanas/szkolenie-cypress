@@ -125,6 +125,10 @@ header nav ul li a:hover::after {
   height: 100%;
 }
 
+header nav ul li a.active {
+  box-shadow: 3px 3px 0px 0px rgb(255, 255, 255);
+}
+
 /* LOGIN */
 
 .form {
