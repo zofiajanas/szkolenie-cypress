@@ -17,3 +17,5 @@ export const displayAllFavourites = () => {
 };
 
 if (window.location.pathname === '/pages/favourites.html') displayAllFavourites();
+
+// 6610,5379,4703,5371,1947,1944,4704,2755,3082

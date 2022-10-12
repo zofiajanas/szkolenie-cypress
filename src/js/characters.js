@@ -18,8 +18,14 @@ const removeFromFavourites = id => {
   localStorage.setItem(storageName, newCharacters);
 
   showMessage('So sad');
-  document.querySelector('.character-list').innerHTML = '';
   displayAllFavourites();
+
+  // 1.
+  // document.querySelector('.character-list').innerHTML = '';
+
+  // 2.
+  // const liElement = document.querySelector(`.character-list li[data-id="${id}"]`);
+  // liElement.remove();
 };
 
 export const createSingleCharacter = async (data, isFav) => {
@@ -28,6 +34,7 @@ export const createSingleCharacter = async (data, isFav) => {
   const template = document.querySelector('.character-item');
   const clon = template.content.cloneNode(true);
 
+  clon.querySelector('li').setAttribute('data-id', data._id);
   clon.querySelector('.character-item__photo').src = data.imageUrl;
   clon.querySelector('.character-item__name').textContent = data.name;
 
