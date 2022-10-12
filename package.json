@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "e2e": "env-cmd -f .env cypress open",
+    "e2e:prod": "env-cmd -f .env.prod cypress open",
+    "integration": "cypress open --config-file ./src/cypress/cypress.integration.config.ts"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "buffer": "^6.0.3",
+    "env-cmd": "^10.1.0",
     "parcel": "^2.7.0",
     "process": "^0.11.10"
   },
