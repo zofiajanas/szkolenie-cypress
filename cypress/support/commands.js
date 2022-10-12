@@ -1,25 +1,22 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import { LoginPageObject } from '../pages/LoginPage';
+import { SearchPage } from '../pages/SearchPage';
+
+Cypress.Commands.add('loginSuccess', (login, password) => {
+  const LoginPO = new LoginPageObject();
+  LoginPO.navigateToPage().setLogin(login, password).submitLoginForm().isPage('/favourites');
+});
+
+Cypress.Commands.add('searchSuccess', value => {
+  const SearchPO = new SearchPage();
+
+  SearchPO.setSearchValue(value).submitSearch().checkIsResults(value, false);
+});
+
+Cypress.Commands.add('addToFavourites', values => {
+  values.forEach(value => {
+    cy.searchSuccess(value);
+
+    const SearchPO = new SearchPage();
+    SearchPO.addToFavourites(value);
+  });
+});

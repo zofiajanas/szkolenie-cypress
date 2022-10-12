@@ -6,7 +6,7 @@ const addToFavourites = id => {
     ? `${localStorage.getItem(storageName)},`
     : '';
 
-  // if (charactersId.includes(id)) return showMessage('This character is already in the favourites!');
+  if (charactersId.includes(id)) return showMessage('This character is already in the favourites!');
 
   localStorage.setItem(storageName, charactersId + id);
 
@@ -20,14 +20,14 @@ const removeFromFavourites = id => {
   localStorage.setItem(storageName, newCharacters);
 
   showMessage('So sad');
-  displayAllFavourites();
 
   // 1.
   // document.querySelector('.character-list').innerHTML = '';
+  // displayAllFavourites();
 
   // 2.
-  // const liElement = document.querySelector(`.character-list li[data-id="${id}"]`);
-  // liElement.remove();
+  const liElement = document.querySelector(`.character-list li[data-id="${id}"]`);
+  liElement.remove();
 };
 
 export const createSingleCharacter = async (data, isFav) => {

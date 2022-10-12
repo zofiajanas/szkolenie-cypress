@@ -7,13 +7,16 @@ describe('search', () => {
     const searchValue = 'Tarzan';
     const nextSearchValue = 'Pocahontas';
 
-    SearchPO.navigateToPage()
-      .setSearchValue(searchValue)
-      .submitSearch()
-      .checkIsResults(searchValue, true)
-      .setSearchValue(nextSearchValue)
-      .submitSearch()
-      .checkIsResults(nextSearchValue, true);
+    // SearchPO.navigateToPage()
+    // .setSearchValue(searchValue)
+    // .submitSearch()
+    // .checkIsResults(searchValue, true)
+    // .setSearchValue(nextSearchValue)
+    // .submitSearch()
+    // .checkIsResults(nextSearchValue, true);
+
+    SearchPO.navigateToPage();
+    cy.searchSuccess(searchValue).searchSuccess(nextSearchValue);
   });
 
   it('no results', () => {
@@ -22,34 +25,44 @@ describe('search', () => {
     const incorrectValue = 'vwnelv';
     const correctValue = 'Mickey Mouse';
 
+    // SearchPO.navigateToPage()
+    //   .setSearchValue(incorrectValue)
+    //   .submitSearch()
+    //   .checkIsResults(incorrectValue, false);
+    //    .setSearchValue(correctValue)
+    //    .submitSearch()
+    //    .checkIsResults(correctValue, true);
+
     SearchPO.navigateToPage()
       .setSearchValue(incorrectValue)
       .submitSearch()
-      .checkIsResults(incorrectValue, false)
-      .setSearchValue(correctValue)
-      .submitSearch()
-      .checkIsResults(correctValue, true);
+      .checkIsResults(incorrectValue, false);
+
+    cy.searchSuccess(correctValue);
   });
 
-  it.only('add to favourites', () => {
+  it('add to favourites', () => {
+    const values = ['Pluto', 'Pocahontas', 'Tarzan', 'Mickey Mouse', 'Donald Duck'];
+
     const SearchPO = new SearchPage();
+    SearchPO.navigateToPage();
 
-    const searchValue = 'Pluto';
-    const nextSearchValue = 'Donald Duck';
+    cy.addToFavourites(values);
+    //   const searchValue = 'Pluto';
+    //   const nextSearchValue = 'Donald Duck';
 
-    SearchPO.navigateToPage()
-      .setSearchValue(searchValue)
-      .submitSearch()
-      .checkIsResults(searchValue, true)
-      .addToFavourites(searchValue)
-      .setSearchValue(nextSearchValue)
-      .submitSearch()
-      .checkIsResults(nextSearchValue, true)
-      .addToFavourites(nextSearchValue)
+    //     .setSearchValue(searchValue)
+    //     .submitSearch()
+    //     .checkIsResults(searchValue, true)
+    //     .addToFavourites(searchValue)
+    //     .setSearchValue(nextSearchValue)
+    //     .submitSearch()
+    //     .checkIsResults(nextSearchValue, true)
+    //     .addToFavourites(nextSearchValue)
 
-      .setSearchValue(nextSearchValue)
-      .submitSearch()
-      .checkIsResults(nextSearchValue, true)
-      .addToFavourites(nextSearchValue);
+    //     .setSearchValue(nextSearchValue)
+    //     .submitSearch()
+    //     .checkIsResults(nextSearchValue, true)
+    //     .addToFavourites(nextSearchValue);
   });
 });

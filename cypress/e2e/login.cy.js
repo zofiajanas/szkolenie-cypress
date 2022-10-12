@@ -10,8 +10,10 @@ describe('our login test', () => {
       // cy.contains('Log in').click();
       // cy.url().should('include', '/favourites');
 
-      const LoginPO = new LoginPageObject();
-      LoginPO.navigateToPage().setLogin('login', 'pass').submitLoginForm().isPage('/favourites');
+      // const LoginPO = new LoginPageObject();
+      // LoginPO.navigateToPage().setLogin('login', 'pass').submitLoginForm().isPage('/favourites');
+
+      cy.loginSuccess('login', 'pass');
     });
   });
 
