@@ -6,6 +6,8 @@ const addToFavourites = id => {
     ? `${localStorage.getItem(storageName)},`
     : '';
 
+  // if (charactersId.includes(id)) return showMessage('This character is already in the favourites!');
+
   localStorage.setItem(storageName, charactersId + id);
 
   showMessage('Great!');
