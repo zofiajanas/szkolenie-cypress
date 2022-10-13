@@ -71,6 +71,26 @@ body {
 
 header {
   padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .login-modal-button {
+  background-color: #000;
+  border: 2px solid #fff;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 20px 40px;
+  box-shadow: 5px 5px 0px 0px rgb(255, 255, 255);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+header .login-modal-button:hover {
+  transform: scale(1.05);
+  box-shadow: 8px 8px 0px 2px rgb(255, 255, 255);
 }
 
 header nav ul {
@@ -123,6 +143,10 @@ header nav ul li a:hover::before {
 
 header nav ul li a:hover::after {
   height: 100%;
+}
+
+header nav ul li a.active {
+  box-shadow: 3px 3px 0px 0px rgb(255, 255, 255);
 }
 
 /* LOGIN */
@@ -185,6 +209,14 @@ header nav ul li a:hover::after {
 .form button:hover {
   transform: scale(1.05);
   box-shadow: 8px 8px 0px 2px rgb(255, 255, 255);
+}
+
+.login-form {
+  display: none;
+}
+
+.login-form.visible {
+  display: block;
 }
 
 /* SEARCH */

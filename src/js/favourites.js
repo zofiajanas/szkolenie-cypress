@@ -8,7 +8,8 @@ const getCharacter = async id => {
 
 export const displayAllFavourites = () => {
   const charactersIds = localStorage.getItem(storageName);
-  if (charactersIds !== '') {
+
+  if (charactersIds !== '' && charactersIds !== null) {
     const charactersArray = charactersIds.split(',');
     charactersArray.forEach(characterId => {
       getCharacter(characterId);
